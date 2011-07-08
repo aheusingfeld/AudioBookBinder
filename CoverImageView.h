@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define ITUNES_COVER_SIZE 300
+#define ITUNES_COVER_SIZE 180
 
 @interface CoverImageView : NSView {
     NSImage *coverImage, *scaledImage;
