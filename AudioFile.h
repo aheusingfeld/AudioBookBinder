@@ -15,18 +15,15 @@
     NSNumber *duration;
     NSString *artist, *name, *album, *albumArtist, *genre, *composer;
     BOOL valid;
+	NSMutableDictionary *properties;
 }
 
+@property(readwrite, copy) NSMutableDictionary *properties;
 @property(readwrite, copy) NSString *filePath;
 @property(readwrite, copy) NSString *file;
 @property(readwrite, copy) NSNumber *duration;
 @property(readwrite, assign) BOOL valid;
-@property(readwrite, copy) NSString *artist;
 @property(readwrite, copy) NSString *name;
-@property(readwrite, copy) NSString *album;
-@property(readwrite, copy) NSString *year;
-@property(readwrite, copy) NSString *genre;
-@property(readwrite, copy) NSString *composer;
 
 
 
@@ -34,6 +31,7 @@
 - (void) dealloc;
 
 // private function
-NSString* getPropertyFromAudioFile(NSString *propName, NSDictionary *properties);
+- (NSString*) getPropertyFromAudioFile: (NSString *)propName;
+- (NSString*) getPropertyFromAudioFile: (NSString *)propName: (NSDictionary *)properties;
 - (void) updateInfo;
 @end

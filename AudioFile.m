@@ -20,15 +20,9 @@
         self.file = [filePath lastPathComponent];
         self.duration = [[NSNumber alloc] initWithInt:-1];
         self.valid = NO;
-        self.artist = @"";
         self.name = @"";
-        self.album = @"";
-        self.year = @"";
-        self.genre = @"";
-        self.composer = @"";
         [self updateInfo];
     }
-    
     return self;
 }
 
@@ -36,20 +30,32 @@
 {
     self.filePath = nil;
     self.file = nil;
-    self.artist = nil;
     self.name = nil;
-    self.album = nil;
-	self.year = nil;
-	self.genre = nil;
-	self.composer = nil;
+	[properties release];
     [super dealloc];
 }
 
-@synthesize filePath, file, duration, valid, artist, name, album, year, composer, genre;
+@synthesize filePath, file, duration, valid, artist, name, album, year, composer, genre, comment, properties;
 
-NSString* getPropertyFromAudioFile(NSString *propName, NSDictionary *properties)
+/**
+ * Tries to read the specified property from the internal list of properties read from the file.
+ * IMPORTANT: "updateInfo" method must have finished before this can be called!!
+ *
+ * @return value of the property as UTF8-String
+ * @see - (NSString*) getPropertyFromAudioFile:(NSString *)propName:(NSDictionary *)props
+ */
+- (NSString*) getPropertyFromAudioFile: (NSString *)propName
 {
-	id obj = [properties objectForKey:propName];
+	return [self getPropertyFromAudioFile:propName:properties];
+}
+
+/**
+ * Tries to read the specified property as UTF8-String from the specified NSDictionary.
+ * IMPORTANT: "updateInfo" method must have finished before this can be called!!
+ */
+- (NSString*) getPropertyFromAudioFile:(NSString *)propName:(NSDictionary *)props
+{
+	id obj = [props objectForKey:propName];
 	
 	if (obj != nil)
 	{
@@ -81,24 +87,16 @@ NSString* getPropertyFromAudioFile(NSString *propName, NSDictionary *properties)
             status = AudioFileGetProperty(audioFile, 
                 kAudioFilePropertyInfoDictionary, &size, &info);
             if ( status == noErr ) {
-                NSDictionary *properties = (NSDictionary *)info;
-                // NSLog(@"file properties: %@", properties);
-                NSString *s = nil;
+				
+				// uncomment this to see the list of property keys in your console
+				// NSLog(@"%@", (NSDictionary*) info);
+				
+				NSMutableDictionary *aProps = [[NSMutableDictionary alloc] init];
+				[ aProps addEntriesFromDictionary: (NSDictionary*) info ];                
+				self.properties = aProps;
+				[aProps release];
                 
-                id obj = [properties objectForKey:@"artist"];
-                
-                if (obj != nil)
-                    s = [NSString stringWithUTF8String:[obj UTF8String]];
-                if (s) 
-                    self.artist = s;
-                else
-                    self.artist = @"";
-				self.artist = getPropertyFromAudioFile(@"artist", properties);
-				self.name = getPropertyFromAudioFile(@"title", properties);
-				self.album = getPropertyFromAudioFile(@"album", properties);
-				self.year = getPropertyFromAudioFile(@"year", properties);
-				self.genre = getPropertyFromAudioFile(@"genre", properties);
-				self.composer = getPropertyFromAudioFile(@"composer", properties);
+				self.name = [self getPropertyFromAudioFile:@"title": (NSDictionary*) info];
 			}
         }
         self.valid = YES;
@@ -107,7 +105,5 @@ NSString* getPropertyFromAudioFile(NSString *propName, NSDictionary *properties)
 
     CFRelease(url);
 }
-
-
 
 @end
