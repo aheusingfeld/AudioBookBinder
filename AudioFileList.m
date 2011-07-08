@@ -132,6 +132,14 @@
 			[newChapter addFile:file];
 		}
         [_chapters addObject:newChapter];
+
+        [_chapters removeAllObjects];
+        for (AudioFile *file in _files) {
+			Chapter *newChapter = [[Chapter alloc] init];
+			newChapter.name = file.name;
+            [newChapter addFile:file];
+			[_chapters addObject:newChapter];
+        }
         // change explicitely because we need to update outlineView in new mode
         _chapterMode = YES;
 
@@ -716,28 +724,53 @@
     
 }
 
-- (NSString *)commonAuthor
+/**
+ * Tries to read named property from first file and checks whether all files in this list have this value in common.
+ * @return nil in case this list is empty or the value is not equal in all files
+ */
+NSString* getCommonValueOfFiles(NSMutableArray *_files, NSString *name)
 {
     if ([_files count] == 0)
         return nil;
-    NSString *author = [[_files objectAtIndex:0] artist]; 
+	
+	AudioFile *firstFile = [_files objectAtIndex:0];
+	NSString *str = [firstFile getPropertyFromAudioFile:name]; 
     for (AudioFile *f in _files) {
-        if (![author isEqualToString:f.artist])
+        if (![str isEqualToString: [f getPropertyFromAudioFile:name] ])
             return nil;
     }
-    return author;
+    return str;
+	
+}
+
+- (NSString *)commonAuthor
+{
+	return getCommonValueOfFiles(_files, @"artist");
 }
 
 - (NSString *)commonAlbum
 {
-    if ([_files count] == 0)
-        return nil;
-    NSString *album = [[_files objectAtIndex:0] album]; 
-    for (AudioFile *f in _files) {
-        if (![album isEqualToString:f.album])
-            return nil;
-    }
-    return album;
+	return getCommonValueOfFiles(_files, @"artist");
 }
           
+- (NSString *)commonGenre
+{
+	return getCommonValueOfFiles(_files, @"genre");
+}
+
+- (NSString *)commonYear
+{
+	return getCommonValueOfFiles(_files, @"year");
+}
+
+- (NSString *)commonComment
+{
+	return getCommonValueOfFiles(_files, @"comments");
+}
+
+- (NSString *)commonComposer
+{
+	return getCommonValueOfFiles(_files, @"composer");
+}
+
 @end

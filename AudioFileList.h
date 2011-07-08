@@ -53,6 +53,10 @@ typedef struct
 
 - (NSString*) commonAuthor;
 - (NSString*) commonAlbum;
+- (NSString*) commonGenre;
+- (NSString*) commonYear;
+- (NSString*) commonComment;
+- (NSString*) commonComposer;
 
 // NSOutlineView data source methods
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
