@@ -46,6 +46,10 @@
     self.artist = nil;
     self.album = nil;
     self.title = nil;
+    self.genre = nil;
+    self.year = nil;
+    self.composer = nil;
+    self.comment = nil;
     self.coverFile = nil;
     
     track = tracksTotal = 0;
@@ -72,6 +76,10 @@
 {
     self.artist = nil;
     self.title = nil;
+    self.genre = nil;
+    self.composer = nil;
+    self.year = nil;
+    self.comment = nil;
     self.coverFile = nil;
     [super dealloc];
 }
@@ -158,7 +166,23 @@
         [newAtomsData appendData:[self encodeMetaDataAtom:@"©ART" 
                                                 value:[artist dataUsingEncoding:NSUTF8StringEncoding] 
                                                  type:ITUNES_METADATA_STRING_CLASS]];
-
+    if (genre != nil)
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©GNRE" 
+													value:[genre dataUsingEncoding:NSUTF8StringEncoding] 
+													 type:ITUNES_METADATA_STRING_CLASS]];
+    if (composer != nil)
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©WRT" 
+													value:[composer dataUsingEncoding:NSUTF8StringEncoding] 
+													 type:ITUNES_METADATA_STRING_CLASS]];
+    if (comment != nil)
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©CMT" 
+													value:[comment dataUsingEncoding:NSUTF8StringEncoding] 
+													 type:ITUNES_METADATA_STRING_CLASS]];
+    if (year != nil)
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©DAY" 
+													value:[year dataUsingEncoding:NSUTF8StringEncoding] 
+													 type:ITUNES_METADATA_STRING_CLASS]];
+	
 
     if (track) {
         short bytes[4];

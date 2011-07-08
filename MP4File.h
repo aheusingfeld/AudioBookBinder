@@ -34,6 +34,10 @@
     NSString *artist;
     NSString *title;
     NSString *album;
+    NSString *genre;
+    NSString *composer;
+    NSString *year;
+    NSString *comment;
     NSString *coverFile;
     unsigned short track, tracksTotal;
     BOOL gaplessPlay;
@@ -42,6 +46,10 @@
 @property (readwrite, copy) NSString *artist;
 @property (readwrite, copy) NSString *album;
 @property (readwrite, copy) NSString *title;
+@property (readwrite, copy) NSString *genre;
+@property (readwrite, copy) NSString *composer;
+@property (readwrite, copy) NSString *comment;
+@property (readwrite, copy) NSString *year;
 @property (readwrite, copy) NSString *coverFile;
 @property (readwrite, assign) unsigned short track, tracksTotal;
 @property (readwrite, assign) BOOL gaplessPlay;
