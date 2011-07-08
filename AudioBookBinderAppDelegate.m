@@ -54,7 +54,10 @@ column_t columnDefs[] = {
 
 enum abb_form_fields {
     ABBAuthor = 0,
-    ABBTitle,
+    ABBTitle = 1,
+    ABBGenre = 2,
+    ABBComposer = 3,
+    ABBYear = 4,
 };
 
 @implementation AudioBookBinderAppDelegate
@@ -226,6 +229,10 @@ enum abb_form_fields {
 - (void) updateGuiWithGuessedData {
 	NSString *author = [[form cellAtIndex:ABBAuthor] stringValue];
 	NSString *title = [[form cellAtIndex:ABBTitle] stringValue];
+	NSString *genre = [[form cellAtIndex:ABBGenre] stringValue];
+	NSString *composer = [[form cellAtIndex:ABBComposer] stringValue];
+	NSString *year = [[form cellAtIndex:ABBYear] stringValue];
+	
 	if ([author isEqualTo:@""] || (author == nil))
 	{
 		NSString *guessedAuthor = [fileList commonAuthor];
@@ -237,6 +244,24 @@ enum abb_form_fields {
 		NSString *guessedTitle = [fileList commonAlbum];
 		if ((guessedTitle != nil) && !([guessedTitle isEqualToString:@""]))
 			[[form cellAtIndex:ABBTitle] setStringValue:guessedTitle];
+	}
+	if ((genre == nil) || [genre isEqualTo:@""])
+	{
+		NSString *guessedGenre = [fileList commonGenre];
+		if ((guessedGenre != nil) && !([guessedGenre isEqualToString:@""]))
+			[[form cellAtIndex:ABBGenre] setStringValue:guessedGenre];
+	}
+	if ((composer == nil) || [composer isEqualTo:@""])
+	{
+		NSString *guessedComposer = [fileList commonComposer];
+		if ((guessedComposer != nil) && !([guessedComposer isEqualToString:@""]))
+			[[form cellAtIndex:ABBComposer] setStringValue:guessedComposer];
+	}
+	if ((year == nil) || [year isEqualTo:@""])
+	{
+		NSString *guessedYear = [fileList commonYear];
+		if ((guessedYear != nil) && !([guessedYear isEqualToString:@""]))
+			[[form cellAtIndex:ABBYear] setStringValue:guessedYear];
 	}
 }
 
@@ -795,6 +820,7 @@ enum abb_form_fields {
 	[fileListView reloadData];
 	[[form cellAtIndex:ABBAuthor] setStringValue:@""];
 	[[form cellAtIndex:ABBTitle] setStringValue:@""];
+	[coverImageView resetImage];
 	
 }
 
