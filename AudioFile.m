@@ -35,7 +35,7 @@
     [super dealloc];
 }
 
-@synthesize filePath, file, duration, valid, artist, name, album, year, composer, genre, comment, properties;
+@synthesize filePath, file, duration, valid, name, properties;
 
 /**
  * Tries to read the specified property from the internal list of properties read from the file.
