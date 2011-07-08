@@ -133,13 +133,14 @@
 		}
         [_chapters addObject:newChapter];
 
-        [_chapters removeAllObjects];
-        for (AudioFile *file in _files) {
-			Chapter *newChapter = [[Chapter alloc] init];
-			newChapter.name = file.name;
-            [newChapter addFile:file];
-			[_chapters addObject:newChapter];
-        }
+// The following code will clean all chapters from the list and afterwards add one chapter per track
+//        [_chapters removeAllObjects];
+//        for (AudioFile *file in _files) {
+//			Chapter *newChapter = [[Chapter alloc] init];
+//			newChapter.name = file.name;
+//            [newChapter addFile:file];
+//			[_chapters addObject:newChapter];
+//        }
         // change explicitely because we need to update outlineView in new mode
         _chapterMode = YES;
 
