@@ -240,9 +240,9 @@
         else if ([tableColumn.identifier isEqualToString:COLUMNID_NAME])
             objectValue = file.name;
         else if ([tableColumn.identifier isEqualToString:COLUMNID_AUTHOR])
-            objectValue = file.artist;
+            objectValue = [file getPropertyFromAudioFile:@"artist"];
         else if ([tableColumn.identifier isEqualToString:COLUMNID_ALBUM])
-            objectValue = file.album;
+            objectValue = [file getPropertyFromAudioFile:@"album"];
         else if ([tableColumn.identifier isEqualToString:COLUMNID_TIME])
         {
             UInt32 duration = [file.duration intValue];
@@ -751,7 +751,7 @@ NSString* getCommonValueOfFiles(NSMutableArray *_files, NSString *name)
 
 - (NSString *)commonAlbum
 {
-	return getCommonValueOfFiles(_files, @"artist");
+	return getCommonValueOfFiles(_files, @"album");
 }
           
 - (NSString *)commonGenre
