@@ -80,5 +80,6 @@
 - (void) playFailed;
 // NSSoundDelegate methods
 - (void)sound:(NSSound *)sound didFinishPlaying:(BOOL)finishedPlaying;
+- (void) searchCoverAtGoogle:(id)sender;
 
 @end
