@@ -51,6 +51,7 @@ typedef struct
 - (void) switchChapterMode;
 - (void) renumberChapters;
 
+- (NSString*) getCommonValueOfFiles:(NSString *)name;
 - (NSString*) commonAuthor;
 - (NSString*) commonAlbum;
 - (NSString*) commonGenre;

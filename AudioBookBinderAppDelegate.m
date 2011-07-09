@@ -58,6 +58,7 @@ enum abb_form_fields {
     ABBGenre = 2,
     ABBComposer = 3,
     ABBYear = 4,
+    ABBComment = 4,
 };
 
 @implementation AudioBookBinderAppDelegate
@@ -232,36 +233,43 @@ enum abb_form_fields {
 	NSString *genre = [[form cellAtIndex:ABBGenre] stringValue];
 	NSString *composer = [[form cellAtIndex:ABBComposer] stringValue];
 	NSString *year = [[form cellAtIndex:ABBYear] stringValue];
+	NSString *comment = [[form cellAtIndex:ABBComment] stringValue];
 	
 	if ([author isEqualTo:@""] || (author == nil))
 	{
-		NSString *guessedAuthor = [fileList commonAuthor];
+		NSString *guessedAuthor = [fileList getCommonValueOfFiles:@"artist"];
 		if ((guessedAuthor != nil) && !([guessedAuthor isEqualToString:@""]))
 			[[form cellAtIndex:ABBAuthor] setStringValue:guessedAuthor];
 	}
 	if ([title isEqualTo:@""] || (title == nil))
 	{
-		NSString *guessedTitle = [fileList commonAlbum];
+		NSString *guessedTitle = [fileList getCommonValueOfFiles:@"album"];
 		if ((guessedTitle != nil) && !([guessedTitle isEqualToString:@""]))
 			[[form cellAtIndex:ABBTitle] setStringValue:guessedTitle];
 	}
 	if ((genre == nil) || [genre isEqualTo:@""])
 	{
-		NSString *guessedGenre = [fileList commonGenre];
+		NSString *guessedGenre = [fileList getCommonValueOfFiles:@"genre"];
 		if ((guessedGenre != nil) && !([guessedGenre isEqualToString:@""]))
 			[[form cellAtIndex:ABBGenre] setStringValue:guessedGenre];
 	}
 	if ((composer == nil) || [composer isEqualTo:@""])
 	{
-		NSString *guessedComposer = [fileList commonComposer];
+		NSString *guessedComposer = [fileList getCommonValueOfFiles:@"composer"];
 		if ((guessedComposer != nil) && !([guessedComposer isEqualToString:@""]))
 			[[form cellAtIndex:ABBComposer] setStringValue:guessedComposer];
 	}
 	if ((year == nil) || [year isEqualTo:@""])
 	{
-		NSString *guessedYear = [fileList commonYear];
+		NSString *guessedYear = [fileList getCommonValueOfFiles:@"year"];
 		if ((guessedYear != nil) && !([guessedYear isEqualToString:@""]))
 			[[form cellAtIndex:ABBYear] setStringValue:guessedYear];
+	}
+	if ((comment == nil) || [comment isEqualTo:@""])
+	{
+		NSString *guessedComment = [fileList getCommonValueOfFiles:@"comments"];
+		if ((guessedComment != nil) && !([guessedComment isEqualToString:@""]))
+			[[form cellAtIndex:ABBYear] setStringValue:guessedComment];
 	}
 }
 
@@ -416,6 +424,10 @@ enum abb_form_fields {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     NSString *author = [[form cellAtIndex:ABBAuthor] stringValue];
     NSString *title = [[form cellAtIndex:ABBTitle] stringValue];
+    NSString *genre = [[form cellAtIndex:ABBGenre] stringValue];
+    NSString *composer = [[form cellAtIndex:ABBComposer] stringValue];
+    NSString *year = [[form cellAtIndex:ABBYear] stringValue];
+    NSString *comment =		[fileList commonComment];
     NSString *coverImageFilename = nil;
     NSImage *coverImage = coverImageView.coverImage;
     UInt64 maxVolumeDuration = 0;
@@ -573,6 +585,10 @@ enum abb_form_fields {
                     else
                         mp4.title = title;
                     mp4.album = title;
+					mp4.genre = genre;
+					mp4.composer = composer;
+					mp4.comment = comment;
+					mp4.year = year;
                     if (coverImageFilename)        
                         [mp4 setCoverFile:coverImageFilename];
                     mp4.track = track;
@@ -820,6 +836,9 @@ enum abb_form_fields {
 	[fileListView reloadData];
 	[[form cellAtIndex:ABBAuthor] setStringValue:@""];
 	[[form cellAtIndex:ABBTitle] setStringValue:@""];
+	[[form cellAtIndex:ABBGenre] setStringValue:@""];
+	[[form cellAtIndex:ABBComposer] setStringValue:@""];
+	[[form cellAtIndex:ABBYear] setStringValue:@""];
 	[coverImageView resetImage];
 	
 }

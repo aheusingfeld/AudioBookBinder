@@ -729,7 +729,7 @@
  * Tries to read named property from first file and checks whether all files in this list have this value in common.
  * @return nil in case this list is empty or the value is not equal in all files
  */
-NSString* getCommonValueOfFiles(NSMutableArray *_files, NSString *name)
+- (NSString*) getCommonValueOfFiles:(NSString *)name
 {
     if ([_files count] == 0)
         return nil;
@@ -742,36 +742,6 @@ NSString* getCommonValueOfFiles(NSMutableArray *_files, NSString *name)
     }
     return str;
 	
-}
-
-- (NSString *)commonAuthor
-{
-	return getCommonValueOfFiles(_files, @"artist");
-}
-
-- (NSString *)commonAlbum
-{
-	return getCommonValueOfFiles(_files, @"album");
-}
-          
-- (NSString *)commonGenre
-{
-	return getCommonValueOfFiles(_files, @"genre");
-}
-
-- (NSString *)commonYear
-{
-	return getCommonValueOfFiles(_files, @"year");
-}
-
-- (NSString *)commonComment
-{
-	return getCommonValueOfFiles(_files, @"comments");
-}
-
-- (NSString *)commonComposer
-{
-	return getCommonValueOfFiles(_files, @"composer");
 }
 
 @end
