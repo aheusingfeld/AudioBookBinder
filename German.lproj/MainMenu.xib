@@ -11,8 +11,8 @@
 			<string key="NS.object.0">851</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="573"/>
 			<integer value="81"/>
+			<integer value="372"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -476,7 +476,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">271</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{700, 308}, {661, 592}}</string>
+				<string key="NSWindowRect">{{700, 281}, {661, 619}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">AudiobookBinder</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -515,7 +515,7 @@
 						<object class="NSCustomView" id="635553524">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">301</int>
-							<string key="NSFrame">{{461, 392}, {180, 180}}</string>
+							<string key="NSFrame">{{461, 405}, {180, 180}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<double key="NSViewAlphaValue">0.61267605633802813</double>
 							<int key="NSViewLayerContentsRedrawPolicy">2</int>
@@ -877,11 +877,12 @@
 										<object class="NSForm" id="338053813">
 											<reference key="NSNextResponder" ref="392845293"/>
 											<int key="NSvFlags">266</int>
-											<string key="NSFrame">{{7, 14}, {400, 142}}</string>
+											<string key="NSFrame">{{7, 13}, {400, 172}}</string>
 											<reference key="NSSuperview" ref="392845293"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
+											<int key="NSTag">5</int>
 											<bool key="NSEnabled">YES</bool>
-											<int key="NSNumRows">5</int>
+											<int key="NSNumRows">6</int>
 											<int key="NSNumCols">1</int>
 											<array class="NSMutableArray" key="NSCells">
 												<object class="NSFormCell" id="25751797">
@@ -890,7 +891,7 @@
 													<string key="NSContents"/>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="338053813"/>
-													<double key="NSTitleWidth">61.61572265625</double>
+													<double key="NSTitleWidth">66.1220703125</double>
 													<object class="NSCell" key="NSTitleCell">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">67108864</int>
@@ -907,7 +908,7 @@
 													<string key="NSPlaceholderString"/>
 													<reference key="NSControlView" ref="338053813"/>
 													<int key="NSTag">1</int>
-													<double key="NSTitleWidth">61.61572265625</double>
+													<double key="NSTitleWidth">66.1220703125</double>
 													<object class="NSCell" key="NSTitleCell">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">67108864</int>
@@ -924,7 +925,7 @@
 													<string key="NSPlaceholderString"/>
 													<reference key="NSControlView" ref="338053813"/>
 													<int key="NSTag">2</int>
-													<double key="NSTitleWidth">61.61572265625</double>
+													<double key="NSTitleWidth">66.1220703125</double>
 													<object class="NSCell" key="NSTitleCell">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">67108864</int>
@@ -940,8 +941,8 @@
 													<reference key="NSSupport" ref="26"/>
 													<string key="NSPlaceholderString"/>
 													<reference key="NSControlView" ref="338053813"/>
-													<int key="NSTag">1</int>
-													<double key="NSTitleWidth">61.61572265625</double>
+													<int key="NSTag">3</int>
+													<double key="NSTitleWidth">66.1220703125</double>
 													<object class="NSCell" key="NSTitleCell">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">67108864</int>
@@ -958,11 +959,28 @@
 													<string key="NSPlaceholderString"/>
 													<reference key="NSControlView" ref="338053813"/>
 													<int key="NSTag">4</int>
-													<double key="NSTitleWidth">61.61572265625</double>
+													<double key="NSTitleWidth">66.1220703125</double>
 													<object class="NSCell" key="NSTitleCell">
 														<int key="NSCellFlags">67239424</int>
 														<int key="NSCellFlags2">67108864</int>
 														<string key="NSContents">Jahr</string>
+														<reference key="NSSupport" ref="26"/>
+														<reference key="NSControlView" ref="338053813"/>
+													</object>
+												</object>
+												<object class="NSFormCell" id="151247814">
+													<int key="NSCellFlags">-1804468671</int>
+													<int key="NSCellFlags2">205652992</int>
+													<string key="NSContents"/>
+													<reference key="NSSupport" ref="26"/>
+													<string key="NSPlaceholderString"/>
+													<reference key="NSControlView" ref="338053813"/>
+													<int key="NSTag">1</int>
+													<double key="NSTitleWidth">66.1220703125</double>
+													<object class="NSCell" key="NSTitleCell">
+														<int key="NSCellFlags">67239424</int>
+														<int key="NSCellFlags2">67108864</int>
+														<string key="NSContents">Kommentar</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSControlView" ref="338053813"/>
 													</object>
@@ -979,7 +997,7 @@
 												<reference key="NSSupport" ref="26"/>
 												<string key="NSPlaceholderString"/>
 												<int key="NSTag">1</int>
-												<double key="NSTitleWidth">61.61572265625</double>
+												<double key="NSTitleWidth">66.1220703125</double>
 												<object class="NSCell" key="NSTitleCell">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">67108864</int>
@@ -987,8 +1005,8 @@
 													<reference key="NSSupport" ref="26"/>
 												</object>
 											</object>
-											<int key="NSSelectedRow">1</int>
-											<reference key="NSSelectedCell" ref="424633407"/>
+											<int key="NSSelectedRow">-1</int>
+											<int key="NSSelectedCol">-1</int>
 											<object class="NSColor" key="NSBackgroundColor">
 												<int key="NSColorSpace">1</int>
 												<bytes key="NSRGB">MC44ODU4Njk1NjUyIDAuODg1ODY5NTY1MiAwLjg4NTg2OTU2NTIAA</bytes>
@@ -997,11 +1015,11 @@
 											<reference key="NSFont" ref="217545718"/>
 										</object>
 									</array>
-									<string key="NSFrame">{{2, 2}, {424, 166}}</string>
+									<string key="NSFrame">{{2, 2}, {424, 195}}</string>
 									<reference key="NSSuperview" ref="930644121"/>
 								</object>
 							</array>
-							<string key="NSFrame">{{17, 388}, {428, 183}}</string>
+							<string key="NSFrame">{{17, 387}, {428, 212}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<string key="NSOffsets">{0, 0}</string>
 							<object class="NSTextFieldCell" key="NSTitleCell">
@@ -1026,8 +1044,28 @@
 							<int key="NSTitlePosition">2</int>
 							<bool key="NSTransparent">NO</bool>
 						</object>
+						<object class="NSButton" id="437749641">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{488, 372}, {125, 32}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="817182982">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Cover suchen</string>
+								<reference key="NSSupport" ref="217545718"/>
+								<reference key="NSControlView" ref="437749641"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
 					</array>
-					<string key="NSFrameSize">{661, 592}</string>
+					<string key="NSFrameSize">{661, 619}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="338053813"/>
 					<object class="NSShadow" key="NSViewShadow">
@@ -2456,6 +2494,22 @@
 					</object>
 					<int key="connectionID">1002</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">chapterType</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="388786936"/>
+					</object>
+					<int key="connectionID">1005</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">searchCoverAtGoogle:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="437749641"/>
+					</object>
+					<int key="connectionID">1012</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2643,9 +2697,10 @@
 							<reference ref="260758459"/>
 							<reference ref="977106492"/>
 							<reference ref="476015818"/>
-							<reference ref="388786936"/>
 							<reference ref="635553524"/>
 							<reference ref="930644121"/>
+							<reference ref="388786936"/>
+							<reference ref="437749641"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3472,6 +3527,7 @@
 							<reference ref="25751797"/>
 							<reference ref="50909167"/>
 							<reference ref="852450591"/>
+							<reference ref="151247814"/>
 						</array>
 						<reference key="parent" ref="930644121"/>
 					</object>
@@ -3510,6 +3566,24 @@
 						<reference key="object" ref="852450591"/>
 						<reference key="parent" ref="338053813"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1006</int>
+						<reference key="object" ref="151247814"/>
+						<reference key="parent" ref="338053813"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1010</int>
+						<reference key="object" ref="437749641"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="817182982"/>
+						</array>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1011</int>
+						<reference key="object" ref="817182982"/>
+						<reference key="parent" ref="437749641"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3517,6 +3591,11 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1001.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1010.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSAffineTransform" key="1010.IBViewBoundsToFrameTransform">
+					<bytes key="NSTransformStruct">P4AAAL+AAABD3IAAw8kAAA</bytes>
+				</object>
+				<string key="1011.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="129.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="130.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="131.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3534,9 +3613,9 @@
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="29.IBEditorWindowLastContentRect">{{788, 1085}, {511, 20}}</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBEditorWindowLastContentRect">{{574, 259}, {661, 592}}</string>
+				<string key="371.IBEditorWindowLastContentRect">{{574, 232}, {661, 619}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBWindowTemplateEditedContentRect">{{574, 259}, {661, 592}}</string>
+				<string key="371.IBWindowTemplateEditedContentRect">{{574, 232}, {661, 619}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<boolean value="YES" key="371.windowTemplate.hasMinSize"/>
 				<string key="371.windowTemplate.minSize">{400, 500}</string>
@@ -3706,6 +3785,7 @@
 					<bytes key="NSTransformStruct">P4AAAL+AAABCpAAAw7oAAA</bytes>
 				</object>
 				<string key="993.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="994.IBEditorWindowLastContentRect">{{645, 570}, {341, 63}}</string>
 				<string key="994.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="995.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="996.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3719,7 +3799,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1004</int>
+			<int key="maxID">1012</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3739,6 +3819,7 @@
 						<string key="openChaptersHowTo:">id</string>
 						<string key="playStop:">id</string>
 						<string key="renumberChapters:">id</string>
+						<string key="searchCoverAtGoogle:">id</string>
 						<string key="setCover:">id</string>
 						<string key="splitFiles:">id</string>
 						<string key="updateValidBitrates:">id</string>
@@ -3792,6 +3873,10 @@
 							<string key="name">renumberChapters:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="searchCoverAtGoogle:">
+							<string key="name">searchCoverAtGoogle:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="setCover:">
 							<string key="name">setCover:</string>
 							<string key="candidateClassName">id</string>
@@ -3808,6 +3893,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="applicationMenu">NSMenu</string>
 						<string key="bindButton">NSButton</string>
+						<string key="chapterType">NSPopUpButton</string>
 						<string key="coverImageView">CoverImageView</string>
 						<string key="currentFile">NSTextField</string>
 						<string key="fileList">AudioFileList</string>
@@ -3828,6 +3914,10 @@
 						<object class="IBToOneOutletInfo" key="bindButton">
 							<string key="name">bindButton</string>
 							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="chapterType">
+							<string key="name">chapterType</string>
+							<string key="candidateClassName">NSPopUpButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="coverImageView">
 							<string key="name">coverImageView</string>
