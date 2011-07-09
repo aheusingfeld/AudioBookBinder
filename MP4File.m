@@ -34,7 +34,7 @@
 
 @implementation MP4File
 
-@synthesize artist, album, title, coverFile;
+@synthesize artist, album, title, coverFile, comment, composer, genre, year;
 @synthesize track, tracksTotal, gaplessPlay;
 
 
@@ -163,23 +163,28 @@
                                                 value:[album dataUsingEncoding:NSUTF8StringEncoding] 
                                                  type:ITUNES_METADATA_STRING_CLASS]];    
     if (artist != nil)
-        [newAtomsData appendData:[self encodeMetaDataAtom:@"©ART" 
+	{
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©art" 
                                                 value:[artist dataUsingEncoding:NSUTF8StringEncoding] 
                                                  type:ITUNES_METADATA_STRING_CLASS]];
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"aART" 
+													value:[artist dataUsingEncoding:NSUTF8StringEncoding] 
+													 type:ITUNES_METADATA_STRING_CLASS]];
+	}
     if (genre != nil)
-        [newAtomsData appendData:[self encodeMetaDataAtom:@"©GNRE" 
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©gen" 
 													value:[genre dataUsingEncoding:NSUTF8StringEncoding] 
 													 type:ITUNES_METADATA_STRING_CLASS]];
     if (composer != nil)
-        [newAtomsData appendData:[self encodeMetaDataAtom:@"©WRT" 
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©wrt" 
 													value:[composer dataUsingEncoding:NSUTF8StringEncoding] 
 													 type:ITUNES_METADATA_STRING_CLASS]];
     if (comment != nil)
-        [newAtomsData appendData:[self encodeMetaDataAtom:@"©CMT" 
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©cmt" 
 													value:[comment dataUsingEncoding:NSUTF8StringEncoding] 
 													 type:ITUNES_METADATA_STRING_CLASS]];
     if (year != nil)
-        [newAtomsData appendData:[self encodeMetaDataAtom:@"©DAY" 
+        [newAtomsData appendData:[self encodeMetaDataAtom:@"©day" 
 													value:[year dataUsingEncoding:NSUTF8StringEncoding] 
 													 type:ITUNES_METADATA_STRING_CLASS]];
 	
@@ -205,10 +210,6 @@
         [data release];
     }
 
-    [newAtomsData appendData:[self encodeMetaDataAtom:@"©gen" 
-                                            value:[@"Audiobooks" dataUsingEncoding:NSUTF8StringEncoding] 
-                                             type:ITUNES_METADATA_STRING_CLASS]];
-    
     if (coverFile != nil)
     {
         NSData *fileData = [NSData dataWithContentsOfFile:coverFile];
