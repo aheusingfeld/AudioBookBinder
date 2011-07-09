@@ -884,5 +884,14 @@ enum abb_form_fields {
     
 }
 
+- (void) searchCoverAtGoogle:(id)sender
+{
+	NSString *baseURL = @"http://www.google.com/search?tbm=isch&tbs=isz:m,iar:s&biw=1596&bih=897&as_q=";
+	NSString *author = [[form cellAtIndex:ABBAuthor] stringValue];
+	NSString *title = [[form cellAtIndex:ABBTitle] stringValue];
+	NSString *url = [NSString stringWithFormat:@"%@%@+-+%@", baseURL, author, title];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+}
+
 
 @end
