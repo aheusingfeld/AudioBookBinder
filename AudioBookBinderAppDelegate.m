@@ -886,11 +886,13 @@ enum abb_form_fields {
 
 - (void) searchCoverAtGoogle:(id)sender
 {
+	// The following base URL leads the user to google mid-size image search using author and title as search key
 	NSString *baseURL = @"http://www.google.com/search?tbm=isch&tbs=isz:m,iar:s&biw=1596&bih=897&as_q=";
 	NSString *author = [[form cellAtIndex:ABBAuthor] stringValue];
 	NSString *title = [[form cellAtIndex:ABBTitle] stringValue];
 	NSString *url = [NSString stringWithFormat:@"%@%@+-+%@", baseURL, author, title];
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+	url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:url]];
 }
 
 
