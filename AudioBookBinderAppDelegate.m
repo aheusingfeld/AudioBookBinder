@@ -427,7 +427,7 @@ enum abb_form_fields {
     NSString *genre = [[form cellAtIndex:ABBGenre] stringValue];
     NSString *composer = [[form cellAtIndex:ABBComposer] stringValue];
     NSString *year = [[form cellAtIndex:ABBYear] stringValue];
-    NSString *comment =		[fileList commonComment];
+    NSString *comment =	[[form cellAtIndex:ABBComment] stringValue];
     NSString *coverImageFilename = nil;
     NSImage *coverImage = coverImageView.coverImage;
     UInt64 maxVolumeDuration = 0;
@@ -839,6 +839,7 @@ enum abb_form_fields {
 	[[form cellAtIndex:ABBGenre] setStringValue:@""];
 	[[form cellAtIndex:ABBComposer] setStringValue:@""];
 	[[form cellAtIndex:ABBYear] setStringValue:@""];
+	[[form cellAtIndex:ABBComment] setStringValue:@""];
 	[coverImageView resetImage];
 	
 }
