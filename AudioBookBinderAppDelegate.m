@@ -58,7 +58,7 @@ enum abb_form_fields {
     ABBGenre = 2,
     ABBComposer = 3,
     ABBYear = 4,
-    ABBComment = 4,
+    ABBComment = 5,
 };
 
 @implementation AudioBookBinderAppDelegate
